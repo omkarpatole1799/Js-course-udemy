@@ -172,3 +172,6 @@ if (bmiMark1 > bmiJhon1){
 // console.log(`The bill amout was ${billAmount} 
 // the tip was ${tip},
 // and total value is ${billAmount + tip}`)
+
+
+
