@@ -165,10 +165,10 @@ if (team2Avg > team1Avg){
 
 // coding challange #4  tip calculator 
 
-const billAmount = 430;
+// const billAmount = 430;
 
-const tip = billAmount >=50 && billAmount <=300 ? billAmount*0.15 : billAmount*0.2
+// const tip = billAmount >=50 && billAmount <=300 ? billAmount*0.15 : billAmount*0.2
 
-console.log(`The bill amout was ${billAmount} 
-the tip was ${tip},
-and total value is ${billAmount + tip}`)
+// console.log(`The bill amout was ${billAmount} 
+// the tip was ${tip},
+// and total value is ${billAmount + tip}`)
