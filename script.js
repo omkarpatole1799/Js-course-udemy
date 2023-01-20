@@ -113,20 +113,22 @@ if (bmiMark1 > bmiJhon1){
 
 // coding challange 3
 
-// const team1 = 96+108+89
-// const team1Avg = team1/3
+const team1 = 96+108+89
+const team1Avg = team1/3
 
-// const team2 = 88+91+110
-// const team2Avg = team2/3
+const team2 = 88+91+110
+const team2Avg = team2/3
 
-// // compairing the average scores
-// if (team2Avg > team1Avg){
-//     console.log("team 2 wins")
-// }else if(team1Avg > team2Avg){
-//     console.log("team 1 win")
-// } else {
-//     console.log("tie")
-// }
+console.log(team1Avg , team2Avg )
+
+// compairing the average scores
+if (team2Avg > team1Avg){
+    console.log("team 2 wins")
+} else if(team1Avg > team2Avg){
+    console.log("team 1 win")
+} else {
+    console.log("tie")
+}
 
 //  bonus 1
 // const team1 = 97+11+101
@@ -146,16 +148,27 @@ if (bmiMark1 > bmiJhon1){
 // }
 
 // bonus 2
-const team1 = 97+11+101
-const team1Avg = team1/3
-console.log(team1Avg)
+// const team1 = 97+11+101
+// const team1Avg = team1/3
+// console.log(team1Avg)
 
-const team2 = 109+95+106
-const team2Avg = team2/3
-console.log(team2Avg)
+// const team2 = 109+95+106
+// const team2Avg = team2/3
+// console.log(team2Avg)
 
-if (team1Avg > 100 && team2Avg > 100 && team1Avg === team2Avg){
-    console.log("draw")
-}else {
-    console.log("no team wins")
-}
+// if (team1Avg > 100 && team2Avg > 100 && team1Avg === team2Avg){
+//     console.log("draw")
+// }else {
+//     console.log("no team wins")
+// }
+
+
+// coding challange #4  tip calculator 
+
+const billAmount = 430;
+
+const tip = billAmount >=50 && billAmount <=300 ? billAmount*0.15 : billAmount*0.2
+
+console.log(`The bill amout was ${billAmount} 
+the tip was ${tip},
+and total value is ${billAmount + tip}`)
