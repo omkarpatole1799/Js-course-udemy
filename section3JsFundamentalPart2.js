@@ -201,3 +201,23 @@ for(let i = 0; i <=billAmountArr.length-1; i ++){
     totalBill.push(billAmountArr[i]+tipArr[i]);
 }
 console.log(totalBill)
+
+
+// object in javascript
+
+const omkarObj = {
+    firstName : "Omkar",
+    lastName : "Patole",
+    age : 24,
+    friends : ["omkar","swaresh","yash","suraj"]
+}
+
+console.log(typeof(omkarObj))
+console.log(omkarObj.firstName)
+const nameKey = "Name"
+console.log(omkarObj['first'+nameKey])
+console.log(omkarObj.friends[1])
+
+const stringCustom = `I'm Omkar Patole age ${omkarObj.age} I have ${omkarObj.friends.length} fridends
+and my best friend is ${omkarObj.friends[4]}`
+console.log(stringCustom)
