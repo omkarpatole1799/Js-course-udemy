@@ -211,8 +211,9 @@ const omkarObj = {
     age : 24,
     friends : ["omkar","swaresh","yash","suraj"]
 }
-
+console.log(omkarObj)
 console.log(typeof(omkarObj))
+
 console.log(omkarObj.firstName)
 const nameKey = "Name"
 console.log(omkarObj['first'+nameKey])
@@ -221,3 +222,7 @@ console.log(omkarObj.friends[1])
 const stringCustom = `I'm Omkar Patole age ${omkarObj.age} I have ${omkarObj.friends.length} fridends
 and my best friend is ${omkarObj.friends[4]}`
 console.log(stringCustom)
+
+omkarObj.location = "Nashik"
+omkarObj['college'] = "SITRC"
+console.log(omkarObj)
