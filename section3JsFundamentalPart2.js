@@ -188,19 +188,19 @@ function calcTip(billAmount){
 } 
 
 const billAmountArr = [125,555,44]
-console.log(billAmountArr)
+// console.log(billAmountArr)
 
 const tipArr = []
 for (let i = 0; i<=billAmountArr.length-1; i++){
     tipArr.push(calcTip(billAmountArr[i]))
 }
-console.log(tipArr)
+// console.log(tipArr)
 
 const totalBill = []
 for(let i = 0; i <=billAmountArr.length-1; i ++){
     totalBill.push(billAmountArr[i]+tipArr[i]);
 }
-console.log(totalBill)
+// console.log(totalBill)
 
 
 // object in javascript
@@ -211,18 +211,112 @@ const omkarObj = {
     age : 24,
     friends : ["omkar","swaresh","yash","suraj"]
 }
-console.log(omkarObj)
-console.log(typeof(omkarObj))
+// console.log(omkarObj)
+// console.log(typeof(omkarObj))
 
-console.log(omkarObj.firstName)
+// console.log(omkarObj.firstName)
 const nameKey = "Name"
-console.log(omkarObj['first'+nameKey])
-console.log(omkarObj.friends[1])
+// console.log(omkarObj['first'+nameKey])
+// console.log(omkarObj.friends[1])
 
 const stringCustom = `I'm Omkar Patole age ${omkarObj.age} I have ${omkarObj.friends.length} fridends
-and my best friend is ${omkarObj.friends[4]}`
-console.log(stringCustom)
+and my best friend is ${omkarObj.friends[3]}`
+// console.log(stringCustom)
 
 omkarObj.location = "Nashik"
 omkarObj['college'] = "SITRC"
-console.log(omkarObj)
+// console.log(omkarObj)
+
+
+// methods of object in JavaScript
+
+const omkarObj2 = {
+    firstName: "Omkar",
+    lastName: "Patole",
+    birthYear: 1999,
+    job: "student",
+    driversLiscense : true,
+
+    // calcAge : function (birthYear){
+    //     return 2037 - birthYear
+    // }
+
+    // calcAge : function(){
+    //     console.log(this)
+    //     return 2037 - this.birthYear
+    // }
+
+    calcAge : function(){
+        this.age = 2037 - this.birthYear
+        return this.age
+    },
+
+    objectSummary : function(){
+        this.summary = `${this.firstName} is a ${this.job} whose age is
+        ${this.calcAge()} & 
+        has ${(this.driversLiscense ? "a" : "no")} driver liscense `
+        return this.summary
+    }
+}
+
+// console.log(omkarObj2.calcAge(1999))
+// console.log(omkarObj2['calcAge'](1999))
+
+
+// console.log(omkarObj2.calcAge())
+
+
+// console.log(omkarObj2.calcAge())
+
+// console.log(omkarObj2.objectSummary())
+
+
+// coding challange
+/* 
+Let's go back to Mark and John comparing their BMIs! This time, let's use objects to
+implement the calculations! Remember: BMI = mass / height ** 2 = mass
+/ (height * height) (mass in kg and height in meter)
+Your tasks:
+1. For each of them, create an object with properties for their full name, mass, and
+height (Mark Miller and John Smith)
+2. Create a 'calcBMI' method on each object to calculate the BMI (the same
+method on both objects). Store the BMI value to a property, and also return it
+from the method
+3. Log to the console who has the higher BMI, together with the full name and the
+respective BMI. Example: "John's BMI (28.3) is higher than Mark's (23.9)!"
+Test data: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m
+tall
+*/
+
+// marks object
+const mark = {
+    firstName : "Mark",
+    lastName : "Miller",
+    weight : 78,
+    height : 1.69,
+
+    calcBmi : function(){
+        this.bmiMark = this.weight / (this.height * this.height)
+        return this.bmiMark
+    }
+}
+
+// jhons object
+const jhon = {
+    firstName : "Jhon",
+    lastName : "Smith",
+    weight : 92,
+    height : 1.95,
+    calcBmi : function(){
+        this.bmiJhon = this.weight / (this.height * this.height)
+        return this.bmiJhon
+    }
+}
+
+console.log(mark.calcBmi(), jhon.calcBmi())
+
+const exampleString = `Mark' BMI (${mark.calcBmi()}) is
+${mark.calcBmi() > jhon.calcBmi() ? "higher" : "lower"} bmi 
+than Jhon's BMI (${jhon.calcBmi()})`
+
+console.log(exampleString)
