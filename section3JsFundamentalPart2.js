@@ -320,3 +320,22 @@ ${mark.calcBmi() > jhon.calcBmi() ? "higher" : "lower"} bmi
 than Jhon's BMI (${jhon.calcBmi()})`
 
 console.log(exampleString)
+
+
+const jhonObj2 = {
+    firstName : "Jhon",
+    lastName : "xyz",
+    birthYear : 1944,
+
+    calcAge : function(){
+        this.age = 2020- this.birthYear
+        return this.age
+    },
+
+    giveSummary : function(){
+        this.summary = `I'm ${this.firstName} ${this.lastName} I'm king of
+        xyz, my age is (${this.calcAge()})`
+        return this.summary
+    }
+}
+console.log(jhonObj2.giveSummary())
