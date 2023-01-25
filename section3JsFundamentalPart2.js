@@ -1,6 +1,5 @@
-'use strict';
-console.log("hi, uncomment the code before using")
-
+"use strict";
+console.log("hi, uncomment the code before using");
 
 // functions
 
@@ -11,7 +10,6 @@ console.log("hi, uncomment the code before using")
 
 // calling function
 // juiceMaker()
-
 
 // defining function with arguments or parameters
 // function fruitJuice(apples,oranges){
@@ -24,8 +22,6 @@ console.log("hi, uncomment the code before using")
 // console.log(fruitJuice(23,3))
 
 // function can have return value or no return values
-
-
 
 // function decleration and function expression and arrow function
 
@@ -57,9 +53,7 @@ console.log("hi, uncomment the code before using")
 // }
 // console.log(calcAge3(1999))
 
-
-// arrow function doesnt have this keyword 
-
+// arrow function doesnt have this keyword
 
 // // calling one function inside other function
 
@@ -80,7 +74,7 @@ console.log("hi, uncomment the code before using")
 // console.log(fruitJuicer(2,3))
 
 // console.log("---------coding challange #1------------")
-// coding challange 
+// coding challange
 /*
 Back to the two gymnastics teams, the Dolphins and the Koalas! There is a new 
 gymnastics discipline, which works differently.
@@ -130,9 +124,7 @@ Test data:
 
 // checkWinner(team1Avg , team2Avg)
 
-
-
-// arrays 
+// arrays
 // mutable - we can change values
 
 // const friends = ["omkar", "yash", "suraj"]
@@ -145,7 +137,7 @@ Test data:
 
 // const birthYearArr = [2001,1999,1996,2004,2020,2025]
 
-// dynamically making ageArr1 by pushing values in it 
+// dynamically making ageArr1 by pushing values in it
 // getting values from calcAge function for push in ageArr1
 
 // let j = 0
@@ -157,119 +149,113 @@ Test data:
 // }
 // console.log(ageArr1)
 
-
-// const ageArr = [calcAge(birthYearArr[0]), calcAge(birthYearArr[1]), 
+// const ageArr = [calcAge(birthYearArr[0]), calcAge(birthYearArr[1]),
 //                 calcAge(birthYearArr[birthYearArr.length-1])]
 //     console.log(ageArr)
 
+// coding challange
 
-
-
-// coding challange 
-
-// Steven is still building his tip calculator, using the same rules as before: Tip 15% of 
-// the bill if the bill value is between 50 and 300, and if the value is different, the tip is 
+// Steven is still building his tip calculator, using the same rules as before: Tip 15% of
+// the bill if the bill value is between 50 and 300, and if the value is different, the tip is
 // 20%.
 // Your tasks:
-// 1. Write a function 'calcTip' that takes any bill value as an input and returns 
-// the corresponding tip, calculated based on the rules above (you can check out 
-// the code from first tip calculator challenge if you need to). Use the function 
+// 1. Write a function 'calcTip' that takes any bill value as an input and returns
+// the corresponding tip, calculated based on the rules above (you can check out
+// the code from first tip calculator challenge if you need to). Use the function
 // type you like the most. Test the function using a bill value of 100
-// 2. And now let's use arrays! So create an array 'bills' containing the test data 
+// 2. And now let's use arrays! So create an array 'bills' containing the test data
 // below
-// 3. Create an array 'tips' containing the tip value for each bill, calculated from 
+// 3. Create an array 'tips' containing the tip value for each bill, calculated from
 // the function you created before
 // 4. Bonus: Create an array 'total' containing the total values, so the bill + tip
 // Test data: 125, 555 and 44
 
-let tip
-function calcTip(billAmount){
-    return tip = billAmount >= 50 && billAmount <= 300 ? billAmount * 0.15 : billAmount * 0.2
-} 
+let tip;
+function calcTip(billAmount) {
+  return (tip =
+    billAmount >= 50 && billAmount <= 300
+      ? billAmount * 0.15
+      : billAmount * 0.2);
+}
 
-const billAmountArr = [125,555,44]
+const billAmountArr = [125, 555, 44];
 // console.log(billAmountArr)
 
-const tipArr = []
-for (let i = 0; i<=billAmountArr.length-1; i++){
-    tipArr.push(calcTip(billAmountArr[i]))
+const tipArr = [];
+for (let i = 0; i <= billAmountArr.length - 1; i++) {
+  tipArr.push(calcTip(billAmountArr[i]));
 }
 // console.log(tipArr)
 
-const totalBill = []
-for(let i = 0; i <=billAmountArr.length-1; i ++){
-    totalBill.push(billAmountArr[i]+tipArr[i]);
+const totalBill = [];
+for (let i = 0; i <= billAmountArr.length - 1; i++) {
+  totalBill.push(billAmountArr[i] + tipArr[i]);
 }
 // console.log(totalBill)
-
 
 // object in javascript
 
 const omkarObj = {
-    firstName : "Omkar",
-    lastName : "Patole",
-    age : 24,
-    friends : ["omkar","swaresh","yash","suraj"]
-}
+  firstName: "Omkar",
+  lastName: "Patole",
+  age: 24,
+  friends: ["omkar", "swaresh", "yash", "suraj"],
+};
 // console.log(omkarObj)
 // console.log(typeof(omkarObj))
 
 // console.log(omkarObj.firstName)
-const nameKey = "Name"
+const nameKey = "Name";
 // console.log(omkarObj['first'+nameKey])
 // console.log(omkarObj.friends[1])
 
 const stringCustom = `I'm Omkar Patole age ${omkarObj.age} I have ${omkarObj.friends.length} fridends
-and my best friend is ${omkarObj.friends[3]}`
+and my best friend is ${omkarObj.friends[3]}`;
 // console.log(stringCustom)
 
-omkarObj.location = "Nashik"
-omkarObj['college'] = "SITRC"
+omkarObj.location = "Nashik";
+omkarObj["college"] = "SITRC";
 // console.log(omkarObj)
-
 
 // methods of object in JavaScript
 
 const omkarObj2 = {
-    firstName: "Omkar",
-    lastName: "Patole",
-    birthYear: 1999,
-    job: "student",
-    driversLiscense : true,
+  firstName: "Omkar",
+  lastName: "Patole",
+  birthYear: 1999,
+  job: "student",
+  driversLiscense: true,
 
-    // calcAge : function (birthYear){
-    //     return 2037 - birthYear
-    // }
+  // calcAge : function (birthYear){
+  //     return 2037 - birthYear
+  // }
 
-    // calcAge : function(){
-    //     console.log(this)
-    //     return 2037 - this.birthYear
-    // }
+  // calcAge : function(){
+  //     console.log(this)
+  //     return 2037 - this.birthYear
+  // }
 
-    calcAge : function(){
-        this.age = 2037 - this.birthYear
-        return this.age
-    },
+  calcAge: function () {
+    this.age = 2037 - this.birthYear;
+    return this.age;
+  },
 
-    objectSummary : function(){
-        this.summary = `${this.firstName} is a ${this.job} whose age is
+  objectSummary: function () {
+    this.summary = `${this.firstName} is a ${this.job} whose age is
         ${this.calcAge()} & 
-        has ${(this.driversLiscense ? "a" : "no")} driver liscense `
-        return this.summary
-    }
-}
+        has ${this.driversLiscense ? "a" : "no"} driver liscense `;
+    return this.summary;
+  },
+};
 
 // console.log(omkarObj2.calcAge(1999))
 // console.log(omkarObj2['calcAge'](1999))
 
-
 // console.log(omkarObj2.calcAge())
-
 
 // console.log(omkarObj2.calcAge())
 
 // console.log(omkarObj2.objectSummary())
-
 
 // coding challange
 /* 
@@ -290,52 +276,51 @@ tall
 
 // marks object
 const mark = {
-    firstName : "Mark",
-    lastName : "Miller",
-    weight : 78,
-    height : 1.69,
+  firstName: "Mark",
+  lastName: "Miller",
+  weight: 78,
+  height: 1.69,
 
-    calcBmi : function(){
-        this.bmiMark = this.weight / (this.height * this.height)
-        return this.bmiMark
-    }
-}
+  calcBmi: function () {
+    this.bmiMark = this.weight / (this.height * this.height);
+    return this.bmiMark;
+  },
+};
 
 // jhons object
 const jhon = {
-    firstName : "Jhon",
-    lastName : "Smith",
-    weight : 92,
-    height : 1.95,
-    calcBmi : function(){
-        this.bmiJhon = this.weight / (this.height * this.height)
-        return this.bmiJhon
-    }
-}
+  firstName: "Jhon",
+  lastName: "Smith",
+  weight: 92,
+  height: 1.95,
+  calcBmi: function () {
+    this.bmiJhon = this.weight / (this.height * this.height);
+    return this.bmiJhon;
+  },
+};
 
-console.log(mark.calcBmi(), jhon.calcBmi())
+console.log(mark.calcBmi(), jhon.calcBmi());
 
 const exampleString = `Mark' BMI (${mark.calcBmi()}) is
 ${mark.calcBmi() > jhon.calcBmi() ? "higher" : "lower"} bmi 
-than Jhon's BMI (${jhon.calcBmi()})`
+than Jhon's BMI (${jhon.calcBmi()})`;
 
-console.log(exampleString)
-
+console.log(exampleString);
 
 const jhonObj2 = {
-    firstName : "Jhon",
-    lastName : "xyz",
-    birthYear : 1944,
+  firstName: "Jhon",
+  lastName: "xyz",
+  birthYear: 1944,
 
-    calcAge : function(){
-        this.age = 2020- this.birthYear
-        return this.age
-    },
+  calcAge: function () {
+    this.age = 2020 - this.birthYear;
+    return this.age;
+  },
 
-    giveSummary : function(){
-        this.summary = `I'm ${this.firstName} ${this.lastName} I'm king of
-        xyz, my age is (${this.calcAge()})`
-        return this.summary
-    }
-}
-console.log(jhonObj2.giveSummary())
+  giveSummary: function () {
+    this.summary = `I'm ${this.firstName} ${this.lastName} I'm king of
+        xyz, my age is (${this.calcAge()})`;
+    return this.summary;
+  },
+};
+console.log(jhonObj2.giveSummary());
