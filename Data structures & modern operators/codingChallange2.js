@@ -26,7 +26,6 @@ game, it will look like this:
  Lewandowski: 2
 }
 */
-
 const game = {
     team1: 'Bayern Munich',
     team2: 'Borrussia Dortmund',
@@ -69,37 +68,32 @@ const game = {
     },
 };
 
-/*
+/* 
 1. Loop over the game.scored array and print each player name to the console,
-along with the goal number (Example: "Goal 1: Lewandowski")
-*/ 
+    along with the goal number(Example: "Goal 1: Lewandowski")
+*/
 
-console.log(Object.entries(game.scored))
+const gameScored = game.scored
 
-for(const [i,name] of game.scored.entries()){
-    console.log(
-        `Goal ${i + 1} : ${name}`
-    )
+for (const [i,player] of gameScored.entries()){
+    console.log(`Goal ${i+1}: ${player}`)
 }
-
-// for (let i = 0; i <= goals.length-1; i ++){
-//     console.log(`Goal ${i+1}: ${goals[i]}`)
-// }
-
 
 /*
 2. Use a loop to calculate the average odd and log it to the console (We already
 studied how to calculate averages, you can go check if you don't remember)
 */ 
+
 const odds = Object.values(game.odds)
+console.log(odds)
 
-let average = 0
-
-for (const odd of odds){
-    average += odd
+let averageOdd = 0
+for(const odd of odds){
+    averageOdd += odd
 }
-average /= odds.length
-console.log(average)
+averageOdd /= odds.length
+console.log(averageOdd)
+
 
 /*
 3. Print the 3 odds to the console, but in a nice formatted way, exactly like this:
@@ -111,10 +105,29 @@ Get the team names directly from the game object, don't hardcode them
 same property names �
 */ 
 
-const oddss = Object.entries(game.odds)
-console.log(oddss)
+const odds1 = Object.entries(game.odds)
+console.log(odds1)
 
-for (const [team, odd] of oddss){
-    console.log(team, odd)
+for(const [team,odd] of odds1){
+    const strVictory = team === "x" ? "draw" : `vicroty ${game[team]}`
+
+    console.log(`odd of ${strVictory} : ${odd}`)
 }
 
+/*
+4. Bonus: Create an object called 'scorers' which contains the names of the
+players who scored as properties, and the number of goals as the value. In this
+game, it will look like this:*/
+
+const gameScoredPlayers = game.scored
+console.log(gameScoredPlayers)
+
+const scorers = {}
+for (const goal of gameScoredPlayers){
+    if(scorers[goal]){
+        scorers[goal] += 1
+    } else {
+        scorers[goal] = 1
+    }
+}
+console.log(scorers)
