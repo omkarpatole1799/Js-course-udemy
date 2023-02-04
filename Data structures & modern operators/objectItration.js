@@ -1,6 +1,6 @@
 'use strict'
 
-const { on } = require("nodemon")
+// const { on } = require("nodemon")
 
 const openingHours = {
     fri: {
@@ -39,6 +39,7 @@ const restraunt = {
         return "Pizza ordered"
     }
 }
+
 
 const frds = restraunt.friends.entries()
 const frds2 = Object.entries(restraunt.friends)
@@ -82,5 +83,4 @@ for (const [day,{open,close}] of entries){
 
 const values = Object.values(openingHours)
 console.log(values)
-
 

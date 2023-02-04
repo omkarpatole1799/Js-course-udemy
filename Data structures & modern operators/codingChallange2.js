@@ -68,6 +68,8 @@ const game = {
     },
 };
 
+
+
 /* 
 1. Loop over the game.scored array and print each player name to the console,
     along with the goal number(Example: "Goal 1: Lewandowski")
@@ -94,6 +96,7 @@ for(const odd of odds){
 averageOdd /= odds.length
 console.log(averageOdd)
 
+// Goal 1: Lewandowski
 
 /*
 3. Print the 3 odds to the console, but in a nice formatted way, exactly like this:
