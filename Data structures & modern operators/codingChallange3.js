@@ -104,8 +104,11 @@ console.log(
 whether it's in the first half or second half (after 45 min) of the game, like this:
 [FIRST HALF] 17: ⚽ GOAL*/
 
-for(const [key,value] of gameEvents.entries()){
-    console.log(
-        key <= 45 ? `[First Half] ${key} : ${value}` : `[Second Half] ${key} : ${value}`
-    )
+for(const [key,value] of gameEvents){
+    // console.log(
+    //     key <= 45 ? `[First Half] ${key} : ${value}` : `[Second Half] ${key} : ${value}`
+    // )
+
+    const half = key <= 45 ? "First" : "Second"
+    console.log(`[${half} Half] ${key} :${value} `)
 }

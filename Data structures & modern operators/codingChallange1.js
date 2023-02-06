@@ -112,11 +112,11 @@ const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic']
 5. Based on the game.odds object, create one variable for each odd(called
 'team1', 'draw' and 'team2')
 */ 
-const {
-    team1,
-    x:draw,
-    team2
-} = game.odds
+// const {
+//     team1,
+//     x:draw,
+//     team2
+// } = game.odds
 
 // const {
 //     odds: {
@@ -153,5 +153,8 @@ printGoals(...game.scored)  // this passes the parameters in seperate values i.e
 team is more likely to win, without using an if/else statement or the ternary
 operator.*/ 
 
+const {team1,x:draw,team2} = game.odds
+
 team1 < team2 && console.log("team1 wins")
 team1 > team2 && console.log("team2 wins")
+
