@@ -122,7 +122,7 @@ transactions.forEach(function (transaction, i, arr) {
   console.log(arr);
 });
 
-// for each on map // 
+// for each on map //
 const myMap = new Map([
   ["USD", "United States Dollar"],
   ["EUR", "EURO"],
@@ -136,9 +136,45 @@ myMap.forEach(function (value, key, arr) {
 
 const mySet = new Set(["EUR", "EUR", "USD", "INR", "INR"]);
 
-mySet.forEach(function(value,key,arr){
-    console.log(`${key} : ${value}`);
-    console.log(arr); // this returns set with unique value only
-})
+mySet.forEach(function (value, key, arr) {
+  console.log(`${key} : ${value}`);
+  console.log(arr); // this returns set with unique value only
+});
 // in sets we dont have key value pair so instead of giving key it gives the value
 // so we see same values for ${key} & ${value}
+// ===============================================================================
+// ===============================================================================
+// map method on array //
+// created new array based on current array
+// when map used it return new array
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// itrating over movements array using map method
+const usdToEur = movements.map(function (movement, i) {
+  return movement * 1.1;
+});
+// here in this example we use map method on movements array and it returns new array and we have stored it in 'usdToEur'
+console.log(usdToEur);
+
+// using for of loop
+const usdToEurFor = [];
+for (const movement of movements) {
+  usdToEurFor.push(movement * 1.1);
+}
+console.log(usdToEurFor);
+
+const messageDiaplay = movements.map((movement, i) => {
+  const action = movement > 0 ? "deposited" : "withdrawn";
+  return `${i + 1}:${action} ${Math.abs(movement)}`;
+});
+console.log(messageDiaplay);
+
+// ===============================================================================
+// ===============================================================================
+// filter method on array //
+// checks the element according to condition
+// if the condition is true then element is included in array
+
+// ===============================================================================
+// ===============================================================================
+// reduce method on array //
+// reduces alll array elements to one single value (i.e. all elements together)
