@@ -121,3 +121,24 @@ transactions.forEach(function (transaction, i, arr) {
 
   console.log(arr);
 });
+
+// for each on map // 
+const myMap = new Map([
+  ["USD", "United States Dollar"],
+  ["EUR", "EURO"],
+  ["INR", "Indian Rupee"],
+]);
+myMap.forEach(function (value, key, arr) {
+  console.log(`${key} : ${value}`);
+});
+
+// for each on sets //
+
+const mySet = new Set(["EUR", "EUR", "USD", "INR", "INR"]);
+
+mySet.forEach(function(value,key,arr){
+    console.log(`${key} : ${value}`);
+    console.log(arr); // this returns set with unique value only
+})
+// in sets we dont have key value pair so instead of giving key it gives the value
+// so we see same values for ${key} & ${value}
