@@ -173,8 +173,52 @@ console.log(messageDiaplay);
 // filter method on array //
 // checks the element according to condition
 // if the condition is true then element is included in array
+const deposit = movements.filter(function (movement) {
+  return movement > 0; // this means if the movement is greater than zero then return to the "deposit" array
+});
+console.log(deposit);
 
+const withdrawals = movements.filter(function (movement) {
+  return movement < 0; // this return movement which is less than zero in 'withdrawls' array
+});
+console.log(withdrawals);
 // ===============================================================================
 // ===============================================================================
 // reduce method on array //
-// reduces alll array elements to one single value (i.e. all elements together)
+// reduces all array elements to one single value (i.e. all elements together)
+
+// syntac .reduce(function(accumulator, currentValue,index,array){},0)
+// accumulator = current total value
+// currentValue = current value
+// ,0 = starting value of accumulator is zero
+
+const totalBalance = movements.reduce(function (accumulator, movement) {
+  return accumulator + movement;
+}, 0);
+console.log(totalBalance);
+
+const totalBalance2 = movements.reduce((acc, mov) => acc + mov, 0);
+console.log(totalBalance2);
+
+// calculate maximum and min value in array using .reduce method
+const maxValue = movements.reduce(function (accumulator, movement) {
+  // if the accumulator value is greater than current value (i.e. movment)
+  // then return accumulator as the current accumultor value
+  if (accumulator > movement) {
+    return accumulator;
+  } else {
+    return movement; // else return 'currentValue' as the new accumulator value
+  }
+}, movements.at(0)); // movement.at(0) = so this function starts from first element of array (i.e. arr.at(0))
+console.log(maxValue);
+
+const minValue = movements.reduce(function (accumulator, movement) {
+  console.log(accumulator);
+  if (accumulator < movement) {
+    return accumulator;
+  } else {
+    return movement;
+  }
+}, movements.at(0));
+
+console.log(minValue);
