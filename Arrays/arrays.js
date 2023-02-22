@@ -222,3 +222,47 @@ const minValue = movements.reduce(function (accumulator, movement) {
 }, movements.at(0));
 
 console.log(minValue);
+
+// ===============================================================================
+// ===============================================================================
+// data
+const account1 = {
+  owner: "Omkar Patole",
+  movements: [22, 12, -40, 233, 500, -90, 66, 22, -99, 1000, -6, -30, 225, 633],
+  // movements: [10, -5, 10],
+  interestRate: 1.22,
+  password: 1111,
+};
+
+const account2 = {
+  owner: "Suraj Ghodke",
+  movements: [10, 21, -3, 800, -300, 287],
+  interestRate: 1.23,
+  password: 2222,
+};
+
+const account3 = {
+  owner: "Yash Patil Patil",
+  movements: [66, 22, -99, 1000, -6, -30, 225, 633],
+  interestRate: 1.24,
+  password: 3333,
+};
+
+const accounts = [account1, account2, account3];
+// ===============================================================================
+// ===============================================================================
+
+// find method //
+// only return first element which match condition
+// only return element not an array
+
+const account = accounts.find((account) => {
+  return account.owner === "Suraj Ghodke";
+});
+// console.log(account);
+
+for (const account of accounts) {
+  if (account.owner === "Suraj Ghodke") {
+    console.log(account);
+  }
+}
