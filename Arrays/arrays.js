@@ -292,3 +292,53 @@ const deposits = movements.some((movement) => {
 movements.every((movement) => {
   return movement < 0;
 });
+
+const testArr = [[1, 2, 3], [1, 2, 3, 4], 5, 6, 7, 8];
+console.log(testArr.flat());
+// flat method //
+//  removes the nested array and make only one array
+// work only for first level of nesting
+// .flat method can take argument as .flat(2)
+// the number '2' represents the level of nesting
+
+// make array of all movements in all the accounts in the bank
+const allAccountMovementsArr = accounts.map((account) => {
+  return account.movements;
+});
+console.log(allAccountMovementsArr);
+console.log(allAccountMovementsArr.flat(2));
+
+const totalAmount = allAccountMovementsArr
+  .flat(2)
+  .reduce(function (accumulator, amount) {
+    return accumulator + amount;
+  }, 0);
+console.log(totalAmount);
+
+console.log(
+  accounts
+    .map((account) => {
+      return account.movements;
+    })
+    .flat(2)
+    .reduce((accumulator, movements) => {
+      return accumulator + movements;
+    }, 0)
+);
+
+console.log(
+  accounts
+    .map((account) => account.movements)
+    .flat(2)
+    .reduce((accumulator, amount) => accumulator + amount, 0)
+);
+
+// flatMap method
+// combines flat and map method together for better performance
+// this goes only one level deep in nested arrays
+// so if we want to go more deep in nested array use both seprately
+console.log(
+  accounts
+    .flatMap((account) => account.movements)
+    .reduce((accumulator, amount) => accumulator + amount, 0)
+);
