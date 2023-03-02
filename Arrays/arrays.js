@@ -266,3 +266,29 @@ for (const account of accounts) {
     console.log(account);
   }
 }
+
+// ///////////////////////////
+// find index method
+//////////////////////////////
+
+// returns the index of the element
+const index = accounts.findIndex((account) => {
+  return account.owner === "Yash Patil Patil";
+});
+console.log(index);
+
+// 2-3-23
+// some method //
+
+// some return true and false based on condition
+// work if only one element meets the condition
+// this method can be used when condition is 'any'
+const deposits = movements.some((movement) => {
+  return movement > 0;
+});
+
+// every method //
+// every return only true if all element in array meets the condition
+movements.every((movement) => {
+  return movement < 0;
+});
