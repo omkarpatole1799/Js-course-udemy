@@ -228,7 +228,7 @@ console.log(minValue);
 // data
 const account1 = {
   owner: "Omkar Patole",
-  movements: [22, 12, -40, 233, 500, -90, 66, 22, -99, 1000, -6, -30, 225, 633],
+  movements: [12, -40, 233, 500, -90, 66, 22, -99, 1000, -6, -30, 225, 633],
   // movements: [10, -5, 10],
   interestRate: 1.22,
   password: 1111,
@@ -326,6 +326,7 @@ console.log(
     }, 0)
 );
 
+console.log("this");
 console.log(
   accounts
     .map((account) => account.movements)
@@ -361,6 +362,7 @@ console.log(
 // new Array(7) = created array of length 7
 // .fill(1,3) = start with index 1 and end at index 3
 // .fill(1,3,5) = fill from index 3 to index 5 with value 1
+
 // Array .from() method //
 // Array.from({length: 7},()=> 1) which is similar to new Array(7)
 const b = Array.from({ length: 7 }, (currentElement, index) => index + 1);
@@ -373,12 +375,76 @@ const randomDiceRolls = Array.from({ length: 100 }, () =>
 );
 console.log(randomDiceRolls);
 
-// can also be used to convert nodelist to array as follows 
+// can also be used to convert nodelist to array as follows
 // Array.from() method //
 // get each movement in array from the UI of movements
 
-const test1 = Array.from(document.querySelectorAll(".movements__value"), (el) =>
-  Number(el.textContent.replace("€", ""))
-);
+// const test1 = Array.from(document.querySelectorAll(".movements__value"), (el) =>
+//   Number(el.textContent.replace("€", ""))
+// );
 
-console.log(test1);
+// console.log(test1);
+// this can also be done using spread operator
+// const test2 = [...document.querySelectorAll(".movements__value")];
+
+// ==================================================================
+// ==================================================================
+// ==================================================================
+// ==================================================================
+// ==================================================================
+// ==================================================================
+// ==================================================================
+// ==================================================================
+// ==================================================================
+//  array methods practice
+// 1. calcuate all the deposits in bank
+console.log("all deposites");
+const depositsAll = accounts
+  .flatMap((acc) => acc.movements)
+  .filter((amount) => amount > 0)
+  .reduce((accu, amount) => accu + amount, 0);
+console.log(depositsAll);
+
+// 2. count no of deposits which are atleat 1000 dollor
+const deposit1000 = accounts
+  .flatMap((account) => account.movements)
+  .filter((movement) => movement >= 1000).length;
+console.log(deposit1000);
+
+console.log("using reduce method");
+const deposit1000_2 = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce(
+    (count, currentElement) => (currentElement >= 1000 ? count + 1 : count),
+    0
+  );
+console.log(deposit1000_2);
+// 3. create new object using reduce method and add all deposits and withdrawals into it
+//  {deposits: 0, withdrawals: 0}
+const sums = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      cur > 0 ? (sums.deposit += cur) : (sums.withdrawals += cur);
+      return sums;
+    },
+    { deposit: 0, withdrawals: 0 }
+  );
+console.log(sums);
+// 4. create function to converto string into title case
+//
+const convertTitleCase = function (title) {
+  const capitalFirstLetter = function (word) {
+    return word[0].toUpperCase() + word.slice(1);
+  };
+  // which words to exclude from title case sentence
+  const except = ["a", "an", "the"];
+  const titleCase = title
+    .toLowerCase()
+    .split(" ")
+    .map((word) => (except.includes(word) ? word : capitalFirstLetter(word)))
+    .join(" ");
+  return capitalFirstLetter(titleCase);
+};
+console.log(convertTitleCase("this Is Another TITLE a an"));
+console.log(convertTitleCase("a this Other titLE"));
