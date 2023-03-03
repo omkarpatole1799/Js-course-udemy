@@ -342,3 +342,43 @@ console.log(
     .flatMap((account) => account.movements)
     .reduce((accumulator, amount) => accumulator + amount, 0)
 );
+
+// 3-3-23
+// sort method //
+// .sort() - sorts from A-Z
+// array is mutated in this
+console.log(movements);
+console.log(
+  movements.sort((currentValue, nextValue) => {
+    if (currentValue > nextValue) return currentValue - nextValue;
+    if (currentValue < nextValue) return nextValue - currentValue;
+  })
+);
+
+// fill method //
+// .fill(value)
+// value = fill the value in the array
+// new Array(7) = created array of length 7
+// .fill(1,3) = start with index 1 and end at index 3
+// .fill(1,3,5) = fill from index 3 to index 5 with value 1
+// Array .from() method //
+// Array.from({length: 7},()=> 1) which is similar to new Array(7)
+const b = Array.from({ length: 7 }, (currentElement, index) => index + 1);
+console.log(b);
+
+// generate 100 random dice rolls
+
+const randomDiceRolls = Array.from({ length: 100 }, () =>
+  Math.trunc(Math.random() * 100)
+);
+console.log(randomDiceRolls);
+
+// can also be used to convert nodelist to array as follows 
+// Array.from() method //
+// get each movement in array from the UI of movements
+
+const test1 = Array.from(document.querySelectorAll(".movements__value"), (el) =>
+  Number(el.textContent.replace("€", ""))
+);
+
+console.log(test1);
