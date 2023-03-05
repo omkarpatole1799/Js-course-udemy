@@ -86,4 +86,3 @@ console.log(value);
 // add 'n' in the end of the number
 // BigInt()
 // math an dlogical operation doesn't work when using big int with regular int
-
