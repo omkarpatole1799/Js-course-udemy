@@ -1,0 +1,28 @@
+// async js
+-async code is executed after a task that runs in background finishes
+-there is no code blocking
+-execution doesn't wait for async task to finish its work
+// URL = https://restcountries.com/v2/ //
+
+// AJAX = async js and xml
+-AJAX allows to communicate with remote web servers in asynchronous way
+-with AJAX we can request data from web servers dynamically
+-request are, GET,POST,etc
+-also we get response back from the server according to our request
+
+/////// 1. method 1 (using XMLHttpRequest) /////////
+
+-const request = new XMLHttpRequest()
+-request.open('GET',`https://restcountries.com/v3.1/name/${country}`)
+-request.send()
+    request.addEventListener('load',function(){
+        const data = JSON.parse(this.responseText)
+        // data has all the response from the api
+    })
+
+
+/*
+keywords used in api's
+
+endpoint = url of the api
+*/
