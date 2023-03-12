@@ -26,3 +26,37 @@ keywords used in api's
 
 endpoint = url of the api
 */
+
+
+// promises and fetch
+// promise - object that is used as a place holder for the future result of async operation
+// a container for an async delivered value
+// a container for the future value
+
+fetch('url_here') // this return a promise
+
+// lifecycle of promise
+pending -> settled(fulfilled/rejected) ->
+
+fulfulled = success value is avaliable
+rejected = error happened
+
+// syntax
+fetch('url_here')
+    .then((response)=> response.json())
+    .then((data)=> //actual usable data)
+
+
+// chaining ajax calls
+fetch('url_here')
+    .then((response)=> response.json())
+    .then((data)=> //actual usable data return fetch('url_here')
+    .then((response)=> response.json())
+    .then((data)=> // actual usable data )
+
+
+// error handling in promises
+- to catch the error simple catch in the end of chain of ajax calls
+
+.catch((err)=>err)
+.finally(()=>) // finally is called always no matter the result of promise
