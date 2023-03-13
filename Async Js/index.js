@@ -18,8 +18,7 @@ const renderCountry = function(data, className =''){
                 </article>`
     countriesContainer.insertAdjacentHTML('afterend',html)
 }
-const renderError = function(err){
-    const message = `${err.message} sorry`
+const renderError = function(message){
     countriesContainer.insertAdjacentText('afterend',message)
 }
 
@@ -57,23 +56,52 @@ const renderError = function(err){
 // getCountriesData('portugal')
 // getCountriesData('usa')
 
-// using fetch api
-
-const getCountryData = function(country){
-    fetch(`https://restcountries.com/v3.1/name/${country}`)
-        .then((response)=> response.json())
-        .then((data)=>{
-            renderCountry(data[0])
-
-            const neighbours = data[0].borders?.[0]
-            return fetch(`https://restcountries.com/v3.1/alpha/${neighbours}`)
+// getJSON
+const getJSON = function (url,errorMessage="Country Not found"){
+    return fetch(url)
+        .then((res)=> {
+            if(!res.ok){
+                throw new Error(`${errorMessage}`)
+            }
+            return res.json()
         })
-        .then((response)=> response.json())
-        .then((data)=> renderCountry(data[0],'neighbour'))
-        .catch(err=>renderError(err))
 }
 
-btn.addEventListener('click',function(){
+const getCountryData = function(country){
+    getJSON(`https://restcountries.com/v3.1/name/${country}`)
+        .then((data)=> {
+            renderCountry(data[0])
+            const neighbours = data[0].borders[0]
+            return getJSON(`https://restcountries.com/v3.1/alpha/${neighbours}`)
+        }).then((data)=>{
+            renderCountry(data[0],'neighbour')
+    }).catch((err)=>renderError(`Something went wrong ${err.message}`))
+}
+
+// using fetch api
+
+// const getCountryData = function(country){
+//     fetch(`https://restcountries.com/v3.1/name/${country}`)
+//         .then((response)=> {
+//
+//             console.log(response)
+//             if(!response.ok){
+//                 throw new Error(`country not found : ${response.status}`)
+//             }
+//             return response.json()
+//         })
+//         .then((data)=>{
+//             renderCountry(data[0])
+//
+//             const neighbours = data[0].borders?.[0]
+//             return fetch(`https://restcountries.com/v3.1/alpha/${neighbours}`)
+//         })
+//         .then((response)=> response.json())
+//         .then((data)=> renderCountry(data[0],'neighbour'))
+//         .catch(err=>renderError(`something went wrong ${err.message}`))
+// }
+
+btn.addEventListener('click',()=>{
     getCountryData('India')
     // getCountryData('portugal')
     // getCountryData('usa')
