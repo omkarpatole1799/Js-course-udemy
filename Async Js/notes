@@ -60,3 +60,16 @@ fetch('url_here')
 
 .catch((err)=>err)
 .finally(()=>) // finally is called always no matter the result of promise
+
+
+// throw manual error
+200  ok
+404  error
+- we can capture the error in response promise 
+- there is status code of the reponse in the promise
+- to throw error using following syntax
+    throw new Error("error_message_here")
+    - throw keyword immediately terminate the rest of the function 
+    - and the promise returned in the callback function here is rejected promise
+    - and that promise is propogated down in .catch((err)=>err)
+    
