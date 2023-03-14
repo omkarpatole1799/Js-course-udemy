@@ -125,5 +125,3 @@ btn.addEventListener('click',function(){
     // whereAmI(-33.933, 18.474)
     whereAmI(-3.933, 8.474)
 })
-
-
