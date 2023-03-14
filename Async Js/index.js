@@ -219,3 +219,25 @@ btn.addEventListener('click',function(){
     whereAmI1(52.508, 13.381)
     // whereAmI1(-3.933, 8.474)
 }) 
+
+getJSON
+
+// promise all combinator
+const get3Countries = async function(c1,c2,c3){
+
+    try{
+        // run multiple operations simultaneously
+    const data = await Promise.all([
+        getJSON(`https://restcountries.com/v3.1/name/${c1}`),
+        getJSON(`https://restcountries.com/v3.1/name/${c2}`),
+        getJSON(`https://restcountries.com/v3.1/name/${c3}`),
+    ])
+    const capitals = data.map((data)=>data[0].capital)
+    console.log(data);
+    console.log(capitals.map((cap)=>cap[0]));
+    } catch(err){
+        console.log(err);
+    }
+
+}
+get3Countries('portugal','japan','canada')
