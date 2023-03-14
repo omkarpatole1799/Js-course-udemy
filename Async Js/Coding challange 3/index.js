@@ -66,6 +66,26 @@ const wait2 = function(seconds){
 // }
 // myFun()
 
+const myFun = async function(){
+    let img = await createImage2('./img/img-1.jpg')
+    console.log('1 load');
+    await wait2(1)
+    img.style.display = 'none'
+
+    img = await createImage2('./img/img-2.jpg')
+    console.log('2 load');
+    await wait2(1)
+    img.style.display = 'none'
+    
+    img = await createImage2('./img/img-3.jpg')
+    console.log('3 load');
+    await wait2(1)
+    img.style.display = 'none'
+
+    console.log('end');
+}
+myFun()
+
 const loadAll = async function(imgPathArr){
     
     const images = imgPathArr.map(async (path)=>await createImage2(path))
