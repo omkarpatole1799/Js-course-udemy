@@ -22,7 +22,7 @@ PART 2
 Test data Part 2: ['img/img-1.jpg', 'img/img-2.jpg', 'img/img3.jpg']. To test, turn off the 'loadNPause' function*/
 
 console.log("coding challange 3");
-
+const imageContainer = document.querySelector('.image')
 const createImage2 = function(imgPath){
     return new Promise((resolve,reject)=>{
         const img = document.createElement('img')
@@ -66,37 +66,36 @@ const wait2 = function(seconds){
 // }
 // myFun()
 
-const myFun = async function(){
-    let img = await createImage2('./img/img-1.jpg')
-    console.log('1 load');
-    await wait2(1)
-    img.style.display = 'none'
+// const myFun = async function(){
+//     let img = await createImage2('./img/img-1.jpg')
+//     console.log('1 load');
+//     await wait2(1)
+//     img.style.display = 'none'
 
-    img = await createImage2('./img/img-2.jpg')
-    console.log('2 load');
-    await wait2(1)
-    img.style.display = 'none'
+//     img = await createImage2('./img/img-2.jpg')
+//     console.log('2 load');
+//     await wait2(1)
+//     img.style.display = 'none'
     
-    img = await createImage2('./img/img-3.jpg')
-    console.log('3 load');
-    await wait2(1)
-    img.style.display = 'none'
+//     img = await createImage2('./img/img-3.jpg')
+//     console.log('3 load');
+//     await wait2(1)
+//     img.style.display = 'none'
 
-    console.log('end');
-}
-myFun()
+//     console.log('end');
+// }
+// myFun()
 
 const loadAll = async function(imgPathArr){
     
     const images = imgPathArr.map(async (path)=>await createImage2(path))
-    const data = await Promise.all(images)
-    data.then(img=>{
-        img.forEach(img=>{
-            img.classList.add('parallel')
-        })
-    })   
-
     
+    const imgEl = await Promise.all(images)
+    console.log(imgEl);
+    imgEl.forEach(img=>{
+        img.classList.add('parallel')
+    })
+ 
 }
 loadAll(['./img/img-1.jpg',
          './img/img-2.jpg',
