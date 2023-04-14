@@ -1,135 +1,136 @@
-// async js
--async code is executed after a task that runs in background finishes
--there is no code blocking
--execution doesn't wait for async task to finish its work
-// URL = https://restcountries.com/v2/ //
 
-// AJAX = async js and xml
--AJAX allows to communicate with remote web servers in asynchronous way
--with AJAX we can request data from web servers dynamically
--request are, GET,POST,etc
--also we get response back from the server according to our request
+// // async js
+// -async code is executed after a task that runs in background finishes
+// -there is no code blocking
+// -execution doesn't wait for async task to finish its work
+// // URL = https://restcountries.com/v2/ //
 
-/////// 1. method 1 (using XMLHttpRequest) /////////
+// // AJAX = async js and xml
+// -AJAX allows to communicate with remote web servers in asynchronous way
+// -with AJAX we can request data from web servers dynamically
+// -request are, GET,POST,etc
+// -also we get response back from the server according to our request
 
--const request = new XMLHttpRequest()
--request.open('GET',`https://restcountries.com/v3.1/name/${country}`)
--request.send()
-    request.addEventListener('load',function(){
-        const data = JSON.parse(this.responseText)
-        // data has all the response from the api
-    })
+// /////// 1. method 1 (using XMLHttpRequest) /////////
 
-
-/*
-keywords used in api's
-
-endpoint = url of the api
-*/
+// -const request = new XMLHttpRequest()
+// -request.open('GET',`https://restcountries.com/v3.1/name/${country}`)
+// -request.send()
+//     request.addEventListener('load',function(){
+//         const data = JSON.parse(this.responseText)
+//         // data has all the response from the api
+//     })
 
 
-// promises and fetch
-// promise - object that is used as a place holder for the future result of async operation
-// a container for an async delivered value
-// a container for the future value
+// /*
+// keywords used in api's
 
-fetch('url_here') // this return a promise
-
-// lifecycle of promise
-pending -> settled(fulfilled/rejected) ->
-
-fulfulled = success value is avaliable
-rejected = error happened
-
-// syntax
-fetch('url_here')
-    .then((response)=> response.json())
-    .then((data)=> //actual usable data)
+// endpoint = url of the api
+// */
 
 
-// chaining ajax calls
-fetch('url_here')
-    .then((response)=> response.json())
-    .then((data)=> //actual usable data return fetch('url_here')
-    .then((response)=> response.json())
-    .then((data)=> // actual usable data )
+// // promises and fetch
+// // promise - object that is used as a place holder for the future result of async operation
+// // a container for an async delivered value
+// // a container for the future value
+
+// fetch('url_here') // this return a promise
+
+// // lifecycle of promise
+// pending -> settled(fulfilled/rejected) ->
+
+// fulfulled = success value is avaliable
+// rejected = error happened
+
+// // syntax
+// fetch('url_here')
+//     .then((response)=> response.json())
+//     .then((data)=> //actual usable data)
 
 
-// error handling in promises
-- to catch the error simple catch in the end of chain of ajax calls
+// // chaining ajax calls
+// fetch('url_here')
+//     .then((response)=> response.json())
+//     .then((data)=> //actual usable data return fetch('url_here')
+//     .then((response)=> response.json())
+//     .then((data)=> // actual usable data )
 
-.catch((err)=>err)
-.finally(()=>) // finally is called always no matter the result of promise
+
+// // error handling in promises
+// - to catch the error simple catch in the end of chain of ajax calls
+
+// .catch((err)=>err)
+// .finally(()=>) // finally is called always no matter the result of promise
 
 
-// throw manual error
-200  ok
-404  error
-- we can capture the error in response promise 
-- there is status code of the reponse in the promise
-- to throw error using following syntax
-    throw new Error("error_message_here")
-    - throw keyword immediately terminate the rest of the function 
-    - and the promise returned in the callback function here is rejected promise
-    - and that promise is propogated down in .catch((err)=>err.message)
+// // throw manual error
+// 200  ok
+// 404  error
+// - we can capture the error in response promise 
+// - there is status code of the reponse in the promise
+// - to throw error using following syntax
+//     throw new Error("error_message_here")
+//     - throw keyword immediately terminate the rest of the function 
+//     - and the promise returned in the callback function here is rejected promise
+//     - and that promise is propogated down in .catch((err)=>err.message)
     
-// micro tasks //
-/*
-- they have more priority than normal tasks
-- suppose we have timer function and micro tasks then micro task will execute first then timer task will execute
-*/
-// these are regular tasks
-setTimeout(()=>console.log('0 sec timer'),0)
+// // micro tasks //
+// /*
+// - they have more priority than normal tasks
+// - suppose we have timer function and micro tasks then micro task will execute first then timer task will execute
+// */
+// // these are regular tasks
+// setTimeout(()=>console.log('0 sec timer'),0)
 
-// these are micro tasks
-Promise.resolve('resolved promise 1').then(res=>console.log(res))
-Promise.resolve('resolved promise 2').then(res=>{
-    for(let i=0; i<100000; i++){}
-    console.log(res)
-})
+// // these are micro tasks
+// Promise.resolve('resolved promise 1').then(res=>console.log(res))
+// Promise.resolve('resolved promise 2').then(res=>{
+//     for(let i=0; i<100000; i++){}
+//     console.log(res)
+// })
 
-// lottery ticket example
-// create manual promise
+// // lottery ticket example
+// // create manual promise
 
-const lotteryTicket = new Promise((resolve,reject)=>{
-    if(Math.random() >= 0.5){
-        resolve("you won lottery")
-    } else {
-        reject('you loose lottery')
-    }
-})
-lotteryTicket.then(res=>console.log(res)).catch(err=>console.log(err))
-
-
-// promisifying =>convert the callback based funtions to promise based functions
-// eg
-
-// wait(2).then(response=>console.log('2 sec wait'))
-
-const wait = function(seconds){
-    return new Promise((resolve,reject)=>{
-        setTimeout(resolve,seconds*1000)
-    })
-}
-
-// chaining multiple setTimeout functions
-wait(1)
-    .then(()=>{
-    console.log('1 sec')
-    return wait(1)
-}).then(()=>{
-    console.log('2 sec');
-    return wait(1)
-}).then(()=>{
-    console.log('3 sec');
-    return wait(1)
-}).then(()=>{
-    console.log('4 sec');
-})
+// const lotteryTicket = new Promise((resolve,reject)=>{
+//     if(Math.random() >= 0.5){
+//         resolve("you won lottery")
+//     } else {
+//         reject('you loose lottery')
+//     }
+// })
+// lotteryTicket.then(res=>console.log(res)).catch(err=>console.log(err))
 
 
-const myFun = async function(){
-//     const res = await fetch('url_here')
-//     const data = await res.json()
-//     console.log(data);
+// // promisifying =>convert the callback based funtions to promise based functions
+// // eg
+
+// // wait(2).then(response=>console.log('2 sec wait'))
+
+// const wait = function(seconds){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(resolve,seconds*1000)
+//     })
 // }
+
+// // chaining multiple setTimeout functions
+// wait(1)
+//     .then(()=>{
+//     console.log('1 sec')
+//     return wait(1)
+// }).then(()=>{
+//     console.log('2 sec');
+//     return wait(1)
+// }).then(()=>{
+//     console.log('3 sec');
+//     return wait(1)
+// }).then(()=>{
+//     console.log('4 sec');
+// })
+
+
+// const myFun = async function(){
+// //     const res = await fetch('url_here')
+// //     const data = await res.json()
+// //     console.log(data);
+// // }
